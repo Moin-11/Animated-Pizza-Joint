@@ -10,13 +10,48 @@ const containerVars = {
   play: {
     opacity: 1,
     x: 0,
+
+    transition: {
+      delay: 0.5,
+      type: "spring",
+    },
+  },
+
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
+  },
+};
+
+const nextVariants = {
+  init: {
+    x: "-100vw",
+  },
+  play: {
+    x: 0,
     transition: {
       type: "spring",
-      delay: 0.5,
+      stiffness: "120",
     },
   },
 };
 
+const buttonvariants = {
+  visible: {
+    x: [-2, 2, -5, 7.5, -1, 2],
+    transition: {
+      delay: 2,
+    },
+  },
+  hover: {
+    scale: 1.2,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      yoyo: Infinity,
+    },
+  },
+};
 const Base = ({ addBase, pizza }) => {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -25,6 +60,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVars}
       initial="init"
       animate="play"
+      exit="exit"
       className="base container"
     >
       <h3>Step 1: Choose Your Base</h3>
@@ -45,20 +81,9 @@ const Base = ({ addBase, pizza }) => {
       </ul>
 
       {pizza.base && (
-        <motion.div
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", stiffness: "120" }}
-          className="next"
-        >
+        <motion.div variants={nextVariants} className="next">
           <Link to="/toppings">
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
-              }}
-            >
+            <motion.button variants={buttonvariants} whileHover="hover">
               Next
             </motion.button>
           </Link>

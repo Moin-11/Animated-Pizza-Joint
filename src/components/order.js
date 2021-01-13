@@ -1,14 +1,57 @@
 import React from "react";
+import { motion } from "framer-motion";
 
+const containerVars = {
+  init: {
+    opacity: 0,
+    x: "100vw",
+  },
+  play: {
+    opacity: 1,
+    x: 0,
+
+    transition: {
+      type: "spring",
+      mass: 0.4,
+      damping: 8,
+      when: "beforeChildren",
+      staggerChildren: 0.4,
+    },
+  },
+
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
+  },
+};
+
+const childVariants = {
+  init: {
+    opacity: 0,
+  },
+  play: {
+    opacity: 1,
+  },
+};
 const Order = ({ pizza }) => {
   return (
-    <div className="container order">
+    <motion.div
+      variants={containerVars}
+      initial="init"
+      animate="play"
+      exit="exit"
+      className="container order"
+    >
       <h2>Thank you for your order :)</h2>
-      <p>You ordered a {pizza.base} pizza with:</p>
+      <motion.p variants={childVariants}>
+        You ordered a {pizza.base} pizza with:
+      </motion.p>
       {pizza.toppings.map((topping) => (
-        <div key={topping}>{topping}</div>
+        <motion.div variants={childVariants} key={topping}>
+          {topping}
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
