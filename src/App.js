@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Base from "./components/Base";
-import Toppings from "./components/Toppings";
-import Order from "./components/Order";
+import Header from "./components/header";
+import Home from "./components/home";
+import Base from "./components/base";
+import Toppings from "./components/toppings";
+import Order from "./components/order";
 
 function App() {
   const [pizza, setPizza] = useState({ base: "", toppings: [] });
