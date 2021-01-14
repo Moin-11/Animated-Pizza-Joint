@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import "../index.css";
 const containerVars = {
   init: {
     opacity: 0,
