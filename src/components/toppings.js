@@ -65,7 +65,7 @@ const Toppings = ({ addTopping, pizza }) => {
           return (
             <motion.li
               transition={{ type: "spring", stiffness: 120 }}
-              whileHover={{ scale: 1.3, color: "#F8E112", originX: 0 }}
+              whileHover={{ scale: 1.3, color: "#55D284", originX: 0 }}
               key={topping}
               onClick={() => addTopping(topping)}
             >

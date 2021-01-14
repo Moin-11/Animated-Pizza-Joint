@@ -27,11 +27,7 @@ div {
 }
 body {
   background: rgb(100, 0, 123);
-  background: radial-gradient(
-    circle,
-    rgba(100, 0, 123, 1) 0%,
-    rgba(62, 20, 86, 1) 100%
-  );
+  background: radial-gradient(circle, #f53844 0%, #42378f 100%);
   overflow: scroll;
 }
 button {
@@ -144,4 +140,14 @@ li span.active::before {
 .modal p {
   color: #444;
   font-weight: bold;
+}
+
+.loader {
+  width: 10px;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  height: 10px;
+  margin: 40px auto;
+  background: #fff;
 }
