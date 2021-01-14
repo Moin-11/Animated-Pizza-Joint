@@ -21,7 +21,7 @@ const loaderVariants = {
 
   animationTwo: {
     y: [0, -50],
-    x: 10,
+    x: 0,
     transition: {
       yoyo: Infinity,
 
