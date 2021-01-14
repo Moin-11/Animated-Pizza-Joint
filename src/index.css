@@ -32,7 +32,7 @@ body {
     rgba(100, 0, 123, 1) 0%,
     rgba(62, 20, 86, 1) 100%
   );
-  overflow: hidden;
+  overflow: scroll;
 }
 button {
   color: white;
